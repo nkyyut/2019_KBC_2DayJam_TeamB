@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Bound : MonoBehaviour {
 
-    //GameObject Player;
-
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player")
