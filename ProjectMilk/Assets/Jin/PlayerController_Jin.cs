@@ -24,7 +24,7 @@ public class PlayerController_Jin : BasePlayer {
     {
         if(col.tag == "Enemy")
         {
-            Effect.EfectCreate( new Vector2(0,0),"Bomb");
+            Effect.EfectCreate( new Vector2(0,0),"Bomb" , 0.5f);
 
             GameObject[] Enemys = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -36,7 +36,7 @@ public class PlayerController_Jin : BasePlayer {
                 
                 Debug.Log(distance);
 
-                if(distance < 1)
+                if(distance < 2)
                 {
                     e.SmashEnemy();
                 }

@@ -533,6 +533,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 61616490835215556, guid: f5d000944d916a042b0adf9e72a9f4c4,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5d000944d916a042b0adf9e72a9f4c4, type: 2}
   m_IsPrefabParent: 0

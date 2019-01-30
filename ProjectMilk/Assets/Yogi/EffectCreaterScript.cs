@@ -18,15 +18,15 @@ public class EffectCreaterScript : MonoBehaviour {
 	// Update is called once per fr
 	void Update () {
         if(Input.GetMouseButtonUp(0)){
-            EfectCreate(TestPos,"Bomb");
+            EfectCreate(TestPos,"Bomb",0.5f);
         }
 		
 	}
 
-    public void EfectCreate(Vector2 Pos,string Key)
+    public void EfectCreate(Vector2 Pos,string Key,float EffectSize)
     {
-       
-      Instantiate(Effect_Array[Key]);
-                
+        GameObject Go;
+        Go = Instantiate(Effect_Array[Key])as GameObject;
+        Go.transform.localScale = new Vector3(EffectSize,EffectSize,EffectSize);
     }
 }
