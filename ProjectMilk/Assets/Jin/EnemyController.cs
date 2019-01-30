@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour {
     private Vector3 Smash_powerDir  = Vector3.zero;
     private Vector3 Smash_offset    = Vector3.zero;
 
-    public GameObject[,] EnemyObjects = new GameObject[2,3];
+    
 
     private void Start()
     {
@@ -23,17 +23,11 @@ public class EnemyController : MonoBehaviour {
 
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public void SmashEnemy()
     {
-        if(col.tag == "Player")
-        {
-            //吹っ飛ばす方向をランダムで決定
-            Smash_powerDir.y = Random.Range(-1.0f,1.0f);
-            Smash_powerDir.x = Random.Range(-1.0f,1.0f);
-            rigid.AddForceAtPosition( Smash_powerDir.normalized * Smash_power, transform.position + Smash_offset );
-
-            Destroy(col.gameObject);
-        }
-
+        //吹っ飛ばす方向をランダムで決定
+        Smash_powerDir.y = Random.Range(-1.0f,1.0f);
+        Smash_powerDir.x = Random.Range(-1.0f,1.0f);
+        rigid.AddForceAtPosition( Smash_powerDir.normalized * Smash_power, transform.position + Smash_offset );
     }
 }

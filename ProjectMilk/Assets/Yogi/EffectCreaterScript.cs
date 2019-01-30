@@ -9,7 +9,7 @@ public class EffectCreaterScript : MonoBehaviour {
     Vector2 TestPos = new Vector2(0, 0);
 	// Use this for initialization
 	void Start () {
-        for (int i=0; (i < 100) && (EffectKeyArray[i] != null);i++ )
+        for (int i=0; EffectKeyArray.Length>i;i++ )
         {
             Effect_Array.Add(EffectKeyArray[i],EffectGameObjectArray[i]);
         }
@@ -23,7 +23,7 @@ public class EffectCreaterScript : MonoBehaviour {
 		
 	}
 
-    void EfectCreate(Vector2 Pos,string Key)
+    public void EfectCreate(Vector2 Pos,string Key)
     {
        
       Instantiate(Effect_Array[Key]);

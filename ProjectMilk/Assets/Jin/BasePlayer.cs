@@ -8,7 +8,7 @@ public class BasePlayer : MonoBehaviour {
     protected Rigidbody2D rigid2D;
 
     //爆発力
-    protected int ExplosionPower;
+    protected float ExplosionPower;
     //プレイヤーのスピード
     protected float PlayerSpeed;
     //プレイヤーのベクトル
@@ -16,12 +16,12 @@ public class BasePlayer : MonoBehaviour {
     protected float PlayerVectorY;
 
 //-----------------関数---------------------//
-    public int GetExplosionPower(){return ExplosionPower;}
+    public float GetExplosionPower(){return ExplosionPower;}
     public float GetPlayerSpeed(){return PlayerSpeed;}
     public float GetPlayerVectorX(){return PlayerVectorX;}
     public float GetPlayerVectorY(){return PlayerVectorY;}
 
-    public void SetExplosionPower(int explosion){explosion = ExplosionPower;}
+    public void SetExplosionPower(float explosion){explosion = ExplosionPower;}
     public void SetPlayerSpeed(float speed){speed = PlayerSpeed;}
     public void SetPlayerVector(float X, float Y){X = PlayerVectorX; Y = PlayerVectorY;}
 
