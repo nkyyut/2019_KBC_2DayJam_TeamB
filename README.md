@@ -1,0 +1,2 @@
+# 2019_KBC_2DayJam_TeamB
+2DayJamのリポジトリです
