@@ -17,22 +17,22 @@ public class AngleChang : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
        
-        rotFlg = Dire.GetComponent<DragScript2>().flg2;
+        rotFlg = Dire.GetComponent<DragScript>().flg2;
         if (rotFlg == true)
         {
-
-            Vector3 vec1 = Dire.GetComponent<DragScript2>().TouchState;
-            Vector3 vec2 = Dire.GetComponent<DragScript2>().TouchEnd;
+            //押し始めた場所の位置(TouchState)と動かした後の位置(TouchEnd)を取得
+            Vector3 vec1 = Dire.GetComponent<DragScript>().TouchState;
+            Vector3 vec2 = Dire.GetComponent<DragScript>().TouchEnd;
 
             float dx = vec2.x - vec1.x;
             float dy = vec2.y - vec1.y;
             float rad = Mathf.Atan2(dy, dx);
-            Debug.Log(rad+"ラジアン");
+            //Debug.Log(rad+"ラジアン");
             float deg = rad * Mathf.Rad2Deg;
-            Debug.Log(deg+"デッグ");
+            //Debug.Log(deg+"デッグ");
             Quaternion angle = this.transform.rotation;
 
-            
+            //deg+90の90足してるのはよくわからない？
             this.transform.rotation = Quaternion.Euler(angle.x,angle.y, deg+90f);
 
         }

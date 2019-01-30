@@ -5,7 +5,7 @@ using UnityEngine;
 public class AngleControll : MonoBehaviour {
 
 
-    bool flg2;
+    bool StateFlg;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,13 +14,15 @@ public class AngleControll : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         GameObject ob = GameObject.Find("GameDirector");
-       flg2 = ob.GetComponent<DragScript2>().flg;
+        StateFlg = ob.GetComponent<DragScript>().flg;
 
-        if(flg2 == true)
+
+        //DragScriptのflg2がtureだった場合
+        if (StateFlg == true)
         {
-           Vector2 posi= ob.GetComponent<DragScript2>().AngleChang();
+            Vector2 posi = ob.GetComponent<DragScript>().VecChang();
             transform.position += new Vector3(posi.x, posi.y);
         }
-	}
+    }
 
 }
