@@ -10,9 +10,11 @@ public class PlayerController_Jin : BasePlayer {
 		base.PlayerSpeed = 200.0f;
         base.rigid2D = GetComponent<Rigidbody2D>();
 
-        this.rigid2D.AddForce(new Vector2(0,1) * base.PlayerSpeed);
+        this.rigid2D.AddForce(new Vector2(0.0f,1) * base.PlayerSpeed);
 
         Effect = GetComponent<EffectCreaterScript>();
+
+        base.ExplosionPower = 0.5f;
 
 	}
 	
@@ -24,26 +26,33 @@ public class PlayerController_Jin : BasePlayer {
     {
         if(col.tag == "Enemy")
         {
-            Effect.EfectCreate( new Vector2(0,0),"Bomb" , 0.5f);
-
+            //爆発エフェクト
+            Effect.EfectCreate( this.transform.position,"Bomb" , base.GetExplosionPower());
+            //Enemyのタグを持っているオブジェクトをすべて取得
             GameObject[] Enemys = GameObject.FindGameObjectsWithTag("Enemy");
 
             for(int i=0; i<Enemys.Length; i++)
             {
                 EnemyController e = Enemys[i].gameObject.GetComponent<EnemyController>();
-
-                float distance = (this.transform.position - e.transform.position).sqrMagnitude;
-                
+                //プレイヤーと敵の距離をそれぞれ取得
+                float distance = (this.transform.position - e.transform.position).sqrMagnitude;              
                 Debug.Log(distance);
 
-                if(distance < 2)
+                //距離　＜　爆発力
+                if(distance < base.GetExplosionPower() * 3f)
                 {
+                    //ランダム方向に回転しながら吹っ飛ぶ
                     e.SmashEnemy();
                 }
             }
             
             
             Destroy(this.gameObject);
+        }
+
+        if(col.tag == "Bomb")
+        {
+            base.SetExplosionPower(base.GetExplosionPower() + 0.5f);
         }
     }
 

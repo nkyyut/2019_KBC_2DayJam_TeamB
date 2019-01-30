@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectCreaterScript : MonoBehaviour {
+public class EffectCreaterScript : BasePlayer {
     public string[] EffectKeyArray;
     public GameObject[] EffectGameObjectArray;
     public Dictionary<string, GameObject> Effect_Array=new Dictionary<string, GameObject>();
@@ -17,9 +17,6 @@ public class EffectCreaterScript : MonoBehaviour {
 	
 	// Update is called once per fr
 	void Update () {
-        if(Input.GetMouseButtonUp(0)){
-            EfectCreate(TestPos,"Bomb",0.5f);
-        }
 		
 	}
 
@@ -27,6 +24,7 @@ public class EffectCreaterScript : MonoBehaviour {
     {
         GameObject Go;
         Go = Instantiate(Effect_Array[Key])as GameObject;
+        Go.transform.position = Pos;
         Go.transform.localScale = new Vector3(EffectSize,EffectSize,EffectSize);
     }
 }
