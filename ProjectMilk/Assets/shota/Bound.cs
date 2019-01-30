@@ -11,6 +11,8 @@ public class Bound : MonoBehaviour {
             Vector2 refrectVec = Vector2.Reflect(col.gameObject.GetComponent<PLCon_shota>().GetVec(), col.contacts[0].normal);
 
             col.gameObject.GetComponent<PLCon_shota>().SetVec(refrectVec);
+            col.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            col.gameObject.GetComponent<Rigidbody2D>().AddForce(refrectVec * col.gameObject.GetComponent<PLCon_shota>().plspd);
         }
     }
 }
