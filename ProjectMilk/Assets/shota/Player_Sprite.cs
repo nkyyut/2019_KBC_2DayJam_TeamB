@@ -31,12 +31,18 @@ public class Player_Sprite : MonoBehaviour {
         MyType = (SpriteType)type - 1;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        MyType += 1;
-        if((int)MyType >= sprites.Length)
+        
+        if(col.tag == "Bomb")
         {
-            MyType = 0;
+            MyType += 1;
+            if((int)MyType >= sprites.Length)
+            {
+                MyType = 0;
+            }
+            
         }
+        
     }
 }
