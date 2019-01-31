@@ -6,7 +6,6 @@ public class EffectCreaterScript : BasePlayer {
     public string[] EffectKeyArray;
     public GameObject[] EffectGameObjectArray;
     public Dictionary<string, GameObject> Effect_Array=new Dictionary<string, GameObject>();
-    Vector2 TestPos = new Vector2(0, 0);
 	// Use this for initialization
 	void Start () {
         for (int i=0; EffectKeyArray.Length>i;i++ )

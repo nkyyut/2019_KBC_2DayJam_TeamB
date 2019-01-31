@@ -8,7 +8,6 @@ public class TouchScript : MonoBehaviour {
     AudioSource audio;
     AudioSource audio2;
 
-    float Time = 0f;
     private bool SceneFlg = false;
 
 	// Use this for initialization

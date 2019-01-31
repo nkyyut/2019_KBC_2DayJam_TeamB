@@ -5,11 +5,8 @@ using UnityEngine;
 public class AngleChang : MonoBehaviour {
 
     GameObject Dire;
-    Vector3 vec3;
-    bool flg = true;
     bool rotFlg = false;
-    bool triger = true;
-	// Use this for initialization
+
 	void Start () {
         Dire = GameObject.Find("GameDirector");
 	}
