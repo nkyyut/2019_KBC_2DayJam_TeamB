@@ -23,7 +23,7 @@ public class TouchScript : MonoBehaviour {
 	void Update () {
         if(SceneFlg == true)
              if (!audio.isPlaying)
-                   SceneManager.LoadScene("AngleSecen");    //メインのシーン名を
+                   SceneManager.LoadScene("Main");    //メインのシーン名を
     }
     public void OnClick()
     {

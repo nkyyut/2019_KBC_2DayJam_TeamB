@@ -53,5 +53,9 @@ public class EnemyController : MonoBehaviour {
         rigid.AddForceAtPosition( Smash_powerDir.normalized * Smash_power, transform.position + Smash_offset );
 
         MyType++;
+        if((int)MyType >= sprites.Length)
+        {
+            MyType = 0;
+        }
     }
 }

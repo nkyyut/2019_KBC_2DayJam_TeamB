@@ -16,7 +16,9 @@ public class BombController : MonoBehaviour {
     {
         if(col.tag == "Player")
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            this.transform.parent = col.transform;
+            this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
         }
             
     }
