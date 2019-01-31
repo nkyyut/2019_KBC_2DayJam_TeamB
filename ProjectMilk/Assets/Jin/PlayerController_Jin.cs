@@ -5,18 +5,25 @@ using UnityEngine;
 public class PlayerController_Jin : BasePlayer {
 
     EffectCreaterScript Effect;
+    [SerializeField] Vector2 myVec;
+    [SerializeField] float Speed;
 
 	void Start () {       
-		//base.PlayerSpeed = 200.0f;//仮のプレイヤースピード（一定）
         base.rigid2D = GetComponent<Rigidbody2D>();
-        //this.rigid2D.AddForce(new Vector2(0.0f,1) * base.PlayerSpeed);
+		//base.PlayerSpeed = 200.0f;//仮のプレイヤースピード（一定）
+        base.SetPlayerSpeed(Speed);
+        
+        //this.rigid2D.AddForce(myVec * base.PlayerSpeed);
+
         Effect = GetComponent<EffectCreaterScript>();
-        base.ExplosionPower = 0.5f;
+        base.ExplosionPower = 0.5f;//初期爆発力
 
 	}
 	
 	void Update () {
-		
+        transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);
+		/* 進行方向を赤棒で示す（Sceneタブのみで目視可能） */
+        Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + new Vector3(myVec.x, myVec.y, 0),Color.red);
 	}
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -49,6 +56,16 @@ public class PlayerController_Jin : BasePlayer {
         {
             base.SetExplosionPower(base.GetExplosionPower() + 0.5f);
         }
+    }
+
+    public void SetVec(Vector2 v)
+    {
+        myVec = v;
+    }
+
+    public Vector2 GetVec()
+    {
+        return myVec;
     }
 
 }

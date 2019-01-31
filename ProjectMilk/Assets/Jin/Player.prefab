@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114934332042640476}
   - component: {fileID: 114737489201654864}
   - component: {fileID: 114298334307891456}
-  - component: {fileID: 114565852796024104}
+  - component: {fileID: 114986983830507182}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -97,18 +97,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ac0bcef4a975b1e468770ac974def4bf, type: 3}
   - {fileID: 21300000, guid: 6e6c7da4526096743a97bdee9f8778c0, type: 3}
   - {fileID: 21300000, guid: 1834784d21f246749a413a5895453738, type: 3}
---- !u!114 &114565852796024104
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504754994881228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e66668325f0c6747942276203a9d351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myVec: {x: 0.25, y: 1}
 --- !u!114 &114737489201654864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,6 +121,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce4846b18a7be52419bb5f4f1a7de57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myVec: {x: -0.25, y: 0.25}
+  Speed: 200
+--- !u!114 &114986983830507182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504754994881228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75093a4403aa40645bcfd8758161ebcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212910590754779540

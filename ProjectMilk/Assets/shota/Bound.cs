@@ -8,9 +8,9 @@ public class Bound : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            Vector2 refrectVec = Vector2.Reflect(col.gameObject.GetComponent<PLCon_shota>().GetVec(), col.contacts[0].normal);
+            Vector2 refrectVec = Vector2.Reflect(col.gameObject.GetComponent<PlayerController_Jin>().GetVec(), col.contacts[0].normal);
 
-            col.gameObject.GetComponent<PLCon_shota>().SetVec(refrectVec);
+            col.gameObject.GetComponent<PlayerController_Jin>().SetVec(refrectVec);
         }
     }
 }

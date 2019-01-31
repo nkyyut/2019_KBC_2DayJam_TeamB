@@ -16,19 +16,19 @@ public class PLCon_shota : BasePlayer
 
     void Update()
     {
-        transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);
+        //transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);
 
         /* 進行方向を赤棒で示す（Sceneタブのみで目視可能） */
-        Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + new Vector3(myVec.x, myVec.y, 0),Color.red);
+        //Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + new Vector3(myVec.x, myVec.y, 0),Color.red);
     }
 
-    public void SetVec(Vector2 v)
-    {
-        myVec = v;
-    }
+    //public void SetVec(Vector2 v)
+    //{
+    //    myVec = v;
+    //}
 
-    public Vector2 GetVec()
-    {
-        return myVec;
-    }
+    //public Vector2 GetVec()
+    //{
+    //    return myVec;
+    //}
 }

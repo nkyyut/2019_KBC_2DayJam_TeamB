@@ -179,22 +179,25 @@ Prefab:
       propertyPath: m_Radius
       value: 0.76638454
       objectReference: {fileID: 0}
-    - target: {fileID: 114565852796024104, guid: 8602b5f7227da7141a51dcd8266f65cf,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: myVec.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114565852796024104, guid: 8602b5f7227da7141a51dcd8266f65cf,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: myVec.x
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
-    - target: {fileID: 114565852796024104, guid: 8602b5f7227da7141a51dcd8266f65cf,
+    - target: {fileID: 0}
+      propertyPath: Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934332042640476, guid: 8602b5f7227da7141a51dcd8266f65cf,
         type: 2}
       propertyPath: Speed
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114986983830507182, guid: 8602b5f7227da7141a51dcd8266f65cf, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8602b5f7227da7141a51dcd8266f65cf, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &207322166
