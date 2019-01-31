@@ -20,6 +20,7 @@ public class AngleControll : MonoBehaviour {
         //DragScriptのflg2がtureだった場合
         if (StateFlg == true)
         {
+
             Vector2 posi = ob.GetComponent<DragScript>().VecChang();
             transform.position += new Vector3(posi.x, posi.y);
         }
