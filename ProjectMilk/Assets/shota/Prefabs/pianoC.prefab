@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4154505878835732}
   - component: {fileID: 82290197371022772}
-  - component: {fileID: 114842555725055138}
+  - component: {fileID: 114556856821662278}
   m_Layer: 0
   m_Name: pianoC
   m_TagString: Untagged
@@ -121,7 +121,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114842555725055138
+--- !u!114 &114556856821662278
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

@@ -20,13 +20,9 @@ public class Bound : MonoBehaviour {
 
             col.gameObject.GetComponent<PlayerController_Jin>().SetVec(refrectVec);
 
-<<<<<<< HEAD:ProjectMilk/Assets/shota/Scripts/Bound.cs
-            col.gameObject.GetComponent<PLCon_shota>().SetVec(refrectVec);
+            col.gameObject.GetComponent<PlayerController_Jin>().SetVec(refrectVec);
             col.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            col.gameObject.GetComponent<Rigidbody2D>().AddForce(refrectVec * col.gameObject.GetComponent<PLCon_shota>().plspd);
-=======
-            Debug.Log(refrectVec);
->>>>>>> origin/master:ProjectMilk/Assets/shota/Bound.cs
+            col.gameObject.GetComponent<Rigidbody2D>().AddForce(refrectVec * col.gameObject.GetComponent<PlayerController_Jin>().Speed);
         }
     }
 }

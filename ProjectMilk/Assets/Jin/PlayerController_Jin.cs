@@ -6,7 +6,7 @@ public class PlayerController_Jin : BasePlayer {
 
     EffectCreaterScript Effect;
     [SerializeField] Vector2 myVec;
-    [SerializeField] float Speed;
+    public float Speed;
     bool StateFlg;
     GameObject ob;
 

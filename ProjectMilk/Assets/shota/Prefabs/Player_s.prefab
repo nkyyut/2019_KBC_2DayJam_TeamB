@@ -22,10 +22,9 @@ GameObject:
   - component: {fileID: 212309154611529462}
   - component: {fileID: 58644514807705692}
   - component: {fileID: 50927232143779552}
-  - component: {fileID: 114594708213575080}
-  - component: {fileID: 114906671252248876}
-  - component: {fileID: 114324614139246750}
-  - component: {fileID: 114318456732169460}
+  - component: {fileID: 114264416586856392}
+  - component: {fileID: 114667146877011590}
+  - component: {fileID: 114843741883965568}
   m_Layer: 0
   m_Name: Player_s
   m_TagString: Player
@@ -40,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1333945090416376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: -3.73, z: 0}
+  m_LocalPosition: {x: -0.14, y: -4.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,24 +80,7 @@ CircleCollider2D:
   m_Offset: {x: 0.00093853474, y: 0}
   serializedVersion: 2
   m_Radius: 0.76
---- !u!114 &114318456732169460
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333945090416376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd67732798b0ddf4c95fb05ab1c491a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SE:
-  - {fileID: 1930378101875132, guid: c9d63b7f011311d4586d71f6d3a23860, type: 2}
-  - {fileID: 1766879828032536, guid: f2d8f6c0b81e2024d809e3d03657a374, type: 2}
-  - {fileID: 1115149325515436, guid: ac0c5d38fde32074f81003a030179b81, type: 2}
-  - {fileID: 1528143002972478, guid: b51849521098f734ebb4b02d758bf126, type: 2}
-  - {fileID: 1247421174022386, guid: 0c12b9a67efc71a439102fa6a111c078, type: 2}
---- !u!114 &114324614139246750
+--- !u!114 &114264416586856392
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -111,10 +93,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyType: 0
   sprites:
-  - {fileID: 21300000, guid: ac0bcef4a975b1e468770ac974def4bf, type: 3}
-  - {fileID: 21300000, guid: 6e6c7da4526096743a97bdee9f8778c0, type: 3}
-  - {fileID: 21300000, guid: 1834784d21f246749a413a5895453738, type: 3}
---- !u!114 &114594708213575080
+  - {fileID: 21300000, guid: f81d48c5d78eed2468346d010bec4c7d, type: 3}
+  - {fileID: 21300000, guid: c05afc778481e15489225184559eeb73, type: 3}
+  - {fileID: 21300000, guid: 4569b56d98439204b83146adbb0a1341, type: 3}
+--- !u!114 &114667146877011590
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -122,12 +104,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1333945090416376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e66668325f0c6747942276203a9d351, type: 3}
+  m_Script: {fileID: 11500000, guid: ce4846b18a7be52419bb5f4f1a7de57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myVec: {x: 0, y: 1}
-  plspd: 200
---- !u!114 &114906671252248876
+  myVec: {x: 0, y: 0}
+  Speed: 0
+--- !u!114 &114843741883965568
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -135,13 +117,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1333945090416376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e404f079abd1de4a909ccc7dd5bd863, type: 3}
+  m_Script: {fileID: 11500000, guid: cd67732798b0ddf4c95fb05ab1c491a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EffectKeyArray:
-  - Bomb
-  EffectGameObjectArray:
-  - {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 2}
+  SE:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &212309154611529462
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -176,12 +160,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ac0bcef4a975b1e468770ac974def4bf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f81d48c5d78eed2468346d010bec4c7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
