@@ -5,55 +5,85 @@ using UnityEngine;
 public class PlayerController_Jin : BasePlayer {
 
     EffectCreaterScript Effect;
+    [SerializeField] Vector2 myVec;
+    [SerializeField] float Speed;
+    bool StateFlg;
+    GameObject ob;
 
-	void Start () {
-		base.PlayerSpeed = 200.0f;
+	void Start () {       
         base.rigid2D = GetComponent<Rigidbody2D>();
-
-        this.rigid2D.AddForce(new Vector2(0.0f,1) * base.PlayerSpeed);
+        ob = GameObject.Find("GameDirector");
+		//base.PlayerSpeed = 200.0f;//仮のプレイヤースピード（一定）
+        base.SetPlayerSpeed(Speed);
+        
+        //this.rigid2D.AddForce(myVec * base.PlayerSpeed);
 
         Effect = GetComponent<EffectCreaterScript>();
-
-        base.ExplosionPower = 0.5f;
+        base.ExplosionPower = 0.5f;//初期爆発力
 
 	}
 	
 	void Update () {
-		
+        StateFlg = ob.GetComponent<DragScript>().flg;
+
+        //DragScriptのflg1がtureだった場合
+        if (StateFlg)
+        {
+            
+            //矢印方向のベクトルを取得
+            myVec = ob.GetComponent<DragScript>().VecChang();
+
+            //transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);
+
+            ob.GetComponent<DragScript>().flg = false;
+        }
+
+        transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);
+
+		/* 進行方向を赤棒で示す（Sceneタブのみで目視可能） */
+        Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + new Vector3(myVec.x, myVec.y, 0),Color.red);
 	}
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "Enemy")
         {
-            //爆発エフェクト
-            Effect.EfectCreate( this.transform.position,"Bomb" , base.GetExplosionPower());
-            //Enemyのタグを持っているオブジェクトをすべて取得
-            GameObject[] Enemys = GameObject.FindGameObjectsWithTag("Enemy");
-
+            
+            Effect.EfectCreate( this.transform.position,"Bomb" , base.GetExplosionPower());//爆発エフェクト
+            
+            GameObject[] Enemys = GameObject.FindGameObjectsWithTag("Enemy");//Enemyのタグを持っているオブジェクトをすべて取得
+            
             for(int i=0; i<Enemys.Length; i++)
             {
                 EnemyController e = Enemys[i].gameObject.GetComponent<EnemyController>();
-                //プレイヤーと敵の距離をそれぞれ取得
-                float distance = (this.transform.position - e.transform.position).sqrMagnitude;              
-                Debug.Log(distance);
+                
+                float distance = (this.transform.position - e.transform.position).sqrMagnitude;//プレイヤーと敵の距離をそれぞれ取得              
+                //Debug.Log(distance);
 
-                //距離　＜　爆発力
+                //距離　＜　爆発力の場合
                 if(distance < base.GetExplosionPower() * 3f)
-                {
-                    //ランダム方向に回転しながら吹っ飛ぶ
-                    e.SmashEnemy();
+                {                  
+                    e.SmashEnemy();//ランダム方向に回転しながら吹っ飛ぶ
                 }
             }
-            
-            
+                      
             Destroy(this.gameObject);
         }
-
+        //ひっつき虫取得による爆発力増加
         if(col.tag == "Bomb")
         {
             base.SetExplosionPower(base.GetExplosionPower() + 0.5f);
         }
+    }
+
+    public void SetVec(Vector2 v)
+    {
+        myVec = v;
+    }
+
+    public Vector2 GetVec()
+    {
+        return myVec;
     }
 
 }

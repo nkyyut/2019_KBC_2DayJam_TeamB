@@ -14,16 +14,18 @@ public class BasePlayer : MonoBehaviour {
     //プレイヤーのベクトル
     protected float PlayerVectorX;
     protected float PlayerVectorY;
+    protected Vector2 PlayerVector;
 
 //-----------------関数---------------------//
     public float GetExplosionPower(){return ExplosionPower;}
     public float GetPlayerSpeed(){return PlayerSpeed;}
     public float GetPlayerVectorX(){return PlayerVectorX;}
     public float GetPlayerVectorY(){return PlayerVectorY;}
+    public Vector2 GetPlayerVector(){return PlayerVector;}
 
     public void SetExplosionPower(float explosion){ExplosionPower = explosion;}
     public void SetPlayerSpeed(float speed){PlayerSpeed = speed;}
-    public void SetPlayerVector(float X, float Y){PlayerVectorX = X; PlayerVectorY = Y;}
+    public void SetPlayerVector(Vector2 vec){PlayerVector = vec;}
 
 
 	void Start () {
