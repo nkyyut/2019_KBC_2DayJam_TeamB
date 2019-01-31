@@ -42,11 +42,26 @@ public class PlayerController_Jin : BasePlayer {
 		/* 進行方向を赤棒で示す（Sceneタブのみで目視可能） */
         Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + new Vector3(myVec.x, myVec.y, 0),Color.red);
 
-        //画面外に出たらDestroy
-        if(this.transform.position.x < -3.11f)Destroy(this.gameObject); 
-        if(this.transform.position.x > 3.13f)Destroy(this.gameObject);
-        if(this.transform.position.y < -5.3f)Destroy(this.gameObject);
-        if(this.transform.position.y > 5.32f)Destroy(this.gameObject);
+        //画面外に出たらリザルト画面を出してプレイヤーをデストロイ
+        if(this.transform.position.x < -3.11f){
+            ResultManagerScript.IsResultFlg = true;
+            Destroy(this.gameObject);            
+        }
+        if(this.transform.position.x > 3.13f){
+            ResultManagerScript.IsResultFlg = true;
+            Destroy(this.gameObject);
+            
+        }
+        if(this.transform.position.y < -5.3f){
+            ResultManagerScript.IsResultFlg = true;
+            Destroy(this.gameObject);
+            
+        }
+        if(this.transform.position.y > 5.32f){
+            ResultManagerScript.IsResultFlg = true;
+            Destroy(this.gameObject);
+           
+        }
 
 	}
 
@@ -78,8 +93,6 @@ public class PlayerController_Jin : BasePlayer {
             
             ResultManagerScript.IsResultFlg = true;//リザルト画面を表示
 
-            //Destroy(ob);
-            
             Destroy(this.gameObject);//自身をデストロイ
         }
         //ひっつき虫取得による爆発力増加
