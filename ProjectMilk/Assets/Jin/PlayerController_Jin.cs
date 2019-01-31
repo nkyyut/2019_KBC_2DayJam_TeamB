@@ -38,8 +38,8 @@ public class PlayerController_Jin : BasePlayer {
             
         }
 
-        //if (this.transform.position.x != 0)
-        //    ob.GetComponent<DragScript>().flg = true;
+        if (this.transform.position.x != 0)
+            ob.GetComponent<DragScript>().NoTouchFlg = true;
 
         transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);//MyVecの方向に移動
 
