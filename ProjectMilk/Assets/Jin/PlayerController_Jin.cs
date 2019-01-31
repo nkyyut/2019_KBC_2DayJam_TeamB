@@ -28,16 +28,13 @@ public class PlayerController_Jin : BasePlayer {
 
         //DragScriptのflg1がtureだった場合
         if (StateFlg)
-        {
-            
+        {            
             //矢印方向のベクトルを取得
             myVec = ob.GetComponent<DragScript>().VecChang();
 
-            //transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);
-
             ob.GetComponent<DragScript>().flg = false;
         }
-
+        //MyVecの方向に移動
         transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);
 
 		/* 進行方向を赤棒で示す（Sceneタブのみで目視可能） */
@@ -46,13 +43,14 @@ public class PlayerController_Jin : BasePlayer {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        //敵に当たったとき爆発する
         if(col.tag == "Enemy")
         {
             
             Effect.EfectCreate( this.transform.position,"Bomb" , base.GetExplosionPower());//爆発エフェクト
             
             GameObject[] Enemys = GameObject.FindGameObjectsWithTag("Enemy");//Enemyのタグを持っているオブジェクトをすべて取得
-            
+            //敵の数だけまわす
             for(int i=0; i<Enemys.Length; i++)
             {
                 EnemyController e = Enemys[i].gameObject.GetComponent<EnemyController>();
@@ -66,6 +64,8 @@ public class PlayerController_Jin : BasePlayer {
                     e.SmashEnemy();//ランダム方向に回転しながら吹っ飛ぶ
                 }
             }
+
+
                       
             Destroy(this.gameObject);
         }
