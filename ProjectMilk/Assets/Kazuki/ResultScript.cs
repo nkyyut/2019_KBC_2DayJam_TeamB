@@ -9,6 +9,8 @@ public class ResultScript : MonoBehaviour {
     [SerializeField] BGMAudioManager BGM_Manager;
     public GameObject _audioSources_Drum;//ドラムロール
     public GameObject _audioSources_Drum_Finish;//ドラムロールフィニッシュ
+    [SerializeField] GameObject RetryButton;
+    [SerializeField] GameObject TitleButton;
 
     public int SmashEnemyNum = 0;
     //表示する速さをInspectorで調節できるように
@@ -40,6 +42,7 @@ public class ResultScript : MonoBehaviour {
             if (!IsResultBGMFlg)
             {
                 Invoke("DrumRoolFinish", 2.5f);
+                Invoke("ButtonOn", 2.7f);
             }
         }
 
@@ -65,6 +68,12 @@ public class ResultScript : MonoBehaviour {
     void DrumRoolFinish()
     {
         _audioSources_Drum.gameObject.GetComponent<AudioSource>().enabled = false;
-        _audioSources_Drum_Finish.gameObject.GetComponent<AudioSource>().enabled = true;
+        _audioSources_Drum_Finish.gameObject.GetComponent<AudioSource>().enabled = true;       
+    }
+
+    void ButtonOn()
+    {
+        RetryButton.SetActive(true);//リトライボタンを表示
+        TitleButton.SetActive(true);//タイトルへのボタンを表示
     }
 }
