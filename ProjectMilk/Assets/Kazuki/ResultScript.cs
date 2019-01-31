@@ -51,6 +51,7 @@ public class ResultScript : MonoBehaviour {
         if (!IsResultBGMFlg)
         {
             _audioSources_Drum.gameObject.GetComponent<AudioSource>().enabled = true;//ドラムロール再生
+            
             IsResultBGMFlg = true;
         }     
 

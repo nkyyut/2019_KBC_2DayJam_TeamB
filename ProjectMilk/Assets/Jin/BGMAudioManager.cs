@@ -12,10 +12,6 @@ public class BGMAudioManager : MonoBehaviour {
 		_audioSource = this.GetComponent<AudioSource>();
         
 	}
-	
-	void Update () {
-		
-	}
 
     public void StopMainBGM()
     {

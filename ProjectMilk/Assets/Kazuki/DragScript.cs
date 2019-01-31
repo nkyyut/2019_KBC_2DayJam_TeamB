@@ -11,6 +11,8 @@ public class DragScript : MonoBehaviour {
 
     public bool flg = false;
     public bool flg2 = false;
+
+    public bool NoTouchFlg = false;
     
 	void Start () {
 		
@@ -18,7 +20,8 @@ public class DragScript : MonoBehaviour {
 	
 	
 	void Update () {
-        GetTouch();
+        if(!NoTouchFlg)
+            GetTouch();
     }
 
     void GetTouch()
@@ -35,6 +38,7 @@ public class DragScript : MonoBehaviour {
             TouchEnd = Input.mousePosition;
             flg = true;
             flg2 = false;
+            NoTouchFlg = true;
             Player.SetActive(false);
         }
         //画面に触れてる間

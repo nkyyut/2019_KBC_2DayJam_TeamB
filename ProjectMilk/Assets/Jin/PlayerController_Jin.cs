@@ -20,7 +20,7 @@ public class PlayerController_Jin : BasePlayer {
         ResultManagerScript = ResultManager.GetComponent<ResultScript>();
         Effect = GetComponent<EffectCreaterScript>();
 		//base.PlayerSpeed = 200.0f;//仮のプレイヤースピード（一定）
-        base.SetPlayerSpeed(Speed);      
+        base.SetPlayerSpeed(Speed);
         base.ExplosionPower = 0.5f;//初期爆発力
 
 	}
@@ -36,11 +36,12 @@ public class PlayerController_Jin : BasePlayer {
 
             ob.GetComponent<DragScript>().flg = false;
         }
-        //MyVecの方向に移動
-        transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);
+        
+        transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);//MyVecの方向に移動
 
 		/* 進行方向を赤棒で示す（Sceneタブのみで目視可能） */
         Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + new Vector3(myVec.x, myVec.y, 0),Color.red);
+
 
         //画面外に出たらリザルト画面を出してプレイヤーをデストロイ
         if(this.transform.position.x < -3.11f){
@@ -49,18 +50,15 @@ public class PlayerController_Jin : BasePlayer {
         }
         if(this.transform.position.x > 3.13f){
             ResultManagerScript.IsResultFlg = true;
-            Destroy(this.gameObject);
-            
+            Destroy(this.gameObject);           
         }
         if(this.transform.position.y < -5.3f){
             ResultManagerScript.IsResultFlg = true;
-            Destroy(this.gameObject);
-            
+            Destroy(this.gameObject);            
         }
         if(this.transform.position.y > 5.32f){
             ResultManagerScript.IsResultFlg = true;
-            Destroy(this.gameObject);
-           
+            Destroy(this.gameObject);          
         }
 
 	}
