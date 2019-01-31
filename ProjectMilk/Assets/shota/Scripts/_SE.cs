@@ -5,16 +5,16 @@ using UnityEngine;
 public class _SE : MonoBehaviour {
 
     [SerializeField] GameObject[] SE; // ドレミ壁爆
-    PLCon_shota pl;
+    PlayerController_Jin pl;
 
     private void Awake()
     {
-        pl = gameObject.GetComponent<PLCon_shota>();
+        pl = gameObject.GetComponent<PlayerController_Jin>();
     }
 
     private void Update()
     {
-        Debug.Log(pl.GetExplosionPower());
+        //Debug.Log(pl.GetExplosionPower());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
