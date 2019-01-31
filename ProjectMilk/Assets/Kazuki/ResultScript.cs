@@ -6,32 +6,34 @@ using System;
 
 public class ResultScript : MonoBehaviour {
 
-    private int Test = 0;
+    public int SmashEnemyNum = 0;
     //表示する速さをInspectorで調節できるように
     [SerializeField] float FillSpeed = 0;
 
     public GameObject ScoreOb = null;
     public GameObject ImageOb = null;
 
+    public bool IsResultFlg;//リザルト画面の描画フラグ
+
     void Start () {
-        
+        IsResultFlg = false;
     }
 	
 	void Update () {
 
-        if(Test == 0)
+        if (IsResultFlg)
         {
-            //スコアをここで入る
-            //Test = 
+            Result();
         }
 
-        //何か開始するflgがあったらいいのかな？
-        //if()
+	}
+
+    public void Result()
+    {
         Text Score = ScoreOb.GetComponent<Text>();
         ImageOb.GetComponent<Image>().fillAmount += FillSpeed;
 
         if (ImageOb.GetComponent<Image>().fillAmount == 1f)
-        Score.text = (Test).ToString();
-        
-	}
+        Score.text = (SmashEnemyNum).ToString();
+    }
 }

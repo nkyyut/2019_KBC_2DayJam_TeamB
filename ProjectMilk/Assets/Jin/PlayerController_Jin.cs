@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController_Jin : BasePlayer {
 
     EffectCreaterScript Effect;
+    GameObject ResultManager;
+    ResultScript ResultManagerScript;
+
     [SerializeField] Vector2 myVec;
     [SerializeField] float Speed;
     bool StateFlg;
@@ -13,12 +16,11 @@ public class PlayerController_Jin : BasePlayer {
 	void Start () {       
         base.rigid2D = GetComponent<Rigidbody2D>();
         ob = GameObject.Find("GameDirector");
-		//base.PlayerSpeed = 200.0f;//仮のプレイヤースピード（一定）
-        base.SetPlayerSpeed(Speed);
-        
-        //this.rigid2D.AddForce(myVec * base.PlayerSpeed);
-
+        ResultManager = GameObject.Find("ResultManager");
+        ResultManagerScript = ResultManager.GetComponent<ResultScript>();
         Effect = GetComponent<EffectCreaterScript>();
+		//base.PlayerSpeed = 200.0f;//仮のプレイヤースピード（一定）
+        base.SetPlayerSpeed(Speed);      
         base.ExplosionPower = 0.5f;//初期爆発力
 
 	}
@@ -39,6 +41,7 @@ public class PlayerController_Jin : BasePlayer {
 
 		/* 進行方向を赤棒で示す（Sceneタブのみで目視可能） */
         Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + new Vector3(myVec.x, myVec.y, 0),Color.red);
+
 	}
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -62,17 +65,20 @@ public class PlayerController_Jin : BasePlayer {
                 if(distance < base.GetExplosionPower() * 3f)
                 {                  
                     e.SmashEnemy();//ランダム方向に回転しながら吹っ飛ぶ
+                    
+                    ResultManagerScript.SmashEnemyNum++;//倒した敵の数をプラス
                 }
             }
-
-
-                      
-            Destroy(this.gameObject);
+            
+            ResultManagerScript.IsResultFlg = true;
+            
+            Destroy(this.gameObject);//自身をデストロイ
         }
         //ひっつき虫取得による爆発力増加
         if(col.tag == "Bomb")
         {
             base.SetExplosionPower(base.GetExplosionPower() + 0.5f);
+            
         }
     }
 

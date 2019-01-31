@@ -1185,7 +1185,8 @@ Prefab:
       propertyPath: plspd
       value: 400
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114594708213575080, guid: d09ca86e4ef81264ab421c95b684b0a7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d09ca86e4ef81264ab421c95b684b0a7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1941280111
