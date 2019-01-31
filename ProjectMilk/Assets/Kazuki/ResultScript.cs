@@ -41,8 +41,8 @@ public class ResultScript : MonoBehaviour {
                 //１回だけ処理
             if (!IsResultBGMFlg)
             {
-                Invoke("DrumRoolFinish", 2.5f);
-                Invoke("ButtonOn", 2.7f);
+                Invoke("DrumRoolFinish", 2.8f);
+                Invoke("ButtonOn", 2.8f);
             }
         }
 
