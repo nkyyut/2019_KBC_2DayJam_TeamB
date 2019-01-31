@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class ResultScript : MonoBehaviour {
 
@@ -30,7 +31,7 @@ public class ResultScript : MonoBehaviour {
         ImageOb.GetComponent<Image>().fillAmount += FillSpeed;
 
         if (ImageOb.GetComponent<Image>().fillAmount == 1f)
-        Score.text = Test+"体";
+        Score.text = (Test).ToString();
         
 	}
 }
