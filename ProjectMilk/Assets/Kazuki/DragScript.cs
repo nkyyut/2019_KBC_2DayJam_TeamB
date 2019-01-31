@@ -52,7 +52,7 @@ public class DragScript : MonoBehaviour {
         float dy = TouchEnd.y - TouchState.y;
         Vector2 vec = new Vector2(-dx ,-dy);
         vec.Normalize();
-        Debug.Log(vec);
+        //Debug.Log(vec);
 
         //Vector2型を返しているよ
         return vec;

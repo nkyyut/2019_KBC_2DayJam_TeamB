@@ -7,9 +7,12 @@ public class PlayerController_Jin : BasePlayer {
     EffectCreaterScript Effect;
     [SerializeField] Vector2 myVec;
     [SerializeField] float Speed;
+    bool StateFlg;
+    GameObject ob;
 
 	void Start () {       
         base.rigid2D = GetComponent<Rigidbody2D>();
+        ob = GameObject.Find("GameDirector");
 		//base.PlayerSpeed = 200.0f;//仮のプレイヤースピード（一定）
         base.SetPlayerSpeed(Speed);
         
@@ -21,7 +24,22 @@ public class PlayerController_Jin : BasePlayer {
 	}
 	
 	void Update () {
+        StateFlg = ob.GetComponent<DragScript>().flg;
+
+        //DragScriptのflg1がtureだった場合
+        if (StateFlg)
+        {
+            
+            //矢印方向のベクトルを取得
+            myVec = ob.GetComponent<DragScript>().VecChang();
+
+            //transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);
+
+            ob.GetComponent<DragScript>().flg = false;
+        }
+
         transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);
+
 		/* 進行方向を赤棒で示す（Sceneタブのみで目視可能） */
         Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + new Vector3(myVec.x, myVec.y, 0),Color.red);
 	}
@@ -40,7 +58,7 @@ public class PlayerController_Jin : BasePlayer {
                 EnemyController e = Enemys[i].gameObject.GetComponent<EnemyController>();
                 
                 float distance = (this.transform.position - e.transform.position).sqrMagnitude;//プレイヤーと敵の距離をそれぞれ取得              
-                Debug.Log(distance);
+                //Debug.Log(distance);
 
                 //距離　＜　爆発力の場合
                 if(distance < base.GetExplosionPower() * 3f)

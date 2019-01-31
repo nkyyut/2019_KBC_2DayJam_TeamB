@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class AngleControll : MonoBehaviour {
 
-
+    GameObject ob;
     bool StateFlg;
 	// Use this for initialization
 	void Start () {
-		
+		ob = GameObject.Find("GameDirector");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        GameObject ob = GameObject.Find("GameDirector");
+        
         StateFlg = ob.GetComponent<DragScript>().flg;
 
 
-        //DragScriptのflg2がtureだった場合
+        //DragScriptのflg1がtureだった場合
         if (StateFlg == true)
         {
-            Vector2 posi = ob.GetComponent<DragScript>().VecChang();
-            transform.position += new Vector3(posi.x, posi.y);
+            StateFlg =false;
+            //Vector2 posi = ob.GetComponent<DragScript>().VecChang();
+            //transform.position += new Vector3(posi.x, posi.y);
         }
     }
 
