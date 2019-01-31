@@ -35,8 +35,12 @@ public class PlayerController_Jin : BasePlayer {
             myVec = ob.GetComponent<DragScript>().VecChang();
 
             ob.GetComponent<DragScript>().flg = false;
+            
         }
-        
+
+        //if (this.transform.position.x != 0)
+        //    ob.GetComponent<DragScript>().flg = true;
+
         transform.Translate(myVec * Time.deltaTime * base.GetPlayerSpeed(), 0);//MyVecの方向に移動
 
 		/* 進行方向を赤棒で示す（Sceneタブのみで目視可能） */

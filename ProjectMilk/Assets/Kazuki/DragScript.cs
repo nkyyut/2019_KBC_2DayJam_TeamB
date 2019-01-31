@@ -38,7 +38,6 @@ public class DragScript : MonoBehaviour {
             TouchEnd = Input.mousePosition;
             flg = true;
             flg2 = false;
-            NoTouchFlg = true;
             Player.SetActive(false);
         }
         //画面に触れてる間
