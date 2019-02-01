@@ -39,7 +39,7 @@ public class Player_Sprite : MonoBehaviour {
             MyType += 1;
             if((int)MyType >= sprites.Length)
             {
-                MyType = 0;
+                MyType = SpriteType.THIRD;
             }
             
         }
